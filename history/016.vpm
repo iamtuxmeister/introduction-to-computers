@@ -1,0 +1,16 @@
+
+            The Turning Machine:
+
+
+                                 ┌────┐
+     ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─│ ┬─ │┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+     │0│1│1│0│0│1│1│1│1│0│0│0│1│1│ │0 ││0│0│1│0│1│0│0│0│0│0│0│0│0│0│0│0│0│0│0│
+     └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─│ ┴─ │┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+                                 └────┘
+
+    Infinite Paper Tape,
+    Read/Write Head can move left or right along the tape.
+
+    Instructions encoded on the tape determine the actions the "Universal Machine"
+    will perform, including moving the head, reading, erasing and writing new values
+    to the tape
