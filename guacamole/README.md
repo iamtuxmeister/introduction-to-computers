@@ -282,4 +282,14 @@ and a complete description of what we are doing here.
 
 ## Wrapping up
 
+Last thing should be to restart all the services to take the new configurations
+and you should have working rdp/ssh in a webpage.
+
+```
+systemctl restart xrdp
+systemctl restart apache2
+systemctl restart tomcat9
+systemctl restart guacd
+```
+
 
