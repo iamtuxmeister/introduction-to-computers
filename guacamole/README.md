@@ -302,4 +302,8 @@ systemctl restart tomcat9
 systemctl restart guacd
 ```
 
+browsing to `https://example.io/guacamole/`, if everything went correctly, should
+display a login page and give you access to your session manager.
 
+Good Luck,
+God Bless
