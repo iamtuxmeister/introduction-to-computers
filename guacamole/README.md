@@ -54,7 +54,7 @@ accessable over guacamole+rdp when we finish building/configuring the applicatio
 apt install tomcat9 apache2 xrdp cinnamon chromium build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
 ```
 
-## applications
+## Applications
 
 Apache Guacamole runs on Apache Tomcat, it was installed in the previous command.
 Tomcat does not get enabled by default. Execute this command to enable and start
@@ -71,4 +71,35 @@ download the source. You can do the build from anywhere, I like to use the
 ```
 cd /opt
 wget https://dlcdn.apache.org/guacamole/1.5.0/source/guacamole-server-1.5.0.tar.gz
+```
+Now we need to extract the source code and begin the build process.
+
+```
+tar -zxf guacamole-server-1.5.0.tar.gz
+cd guacamole-server-1.5.0/
+```
+Configure the application setting the system directory and track dependancies.
+```
+./configure --with-systemd-dir=/etc/systemd/system/ --disable-dependency-tracking
+```
+Because we are not building on Windows you can ignore the single missing library wsock32.
+If any other libraries are missing in the dependancy check please resolve them,
+and submit an issue so I can correct the dependancies.
+```
+make
+```
+Check for errors. This should complete without issues. Any hard stops
+should be corrected, and issues submitted so I can update the guide.
+```
+make install
+```
+This will produce a couple warnings about relinking, but should install and be
+functional.
+
+some system libraries are added and need to have their links updated and guacd
+was added to systemd. systemd needs to be reloaded after the libraries are synced.
+
+```
+ldconfig
+systemctl daemon-reload
 ```
