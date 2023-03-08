@@ -6,7 +6,7 @@ Ubuntu LTS 22.04
 
 Commands that can be copied and pasted will be displayed as
 ```
-code blocks
+code blocuser
 ```
 Please follow along, and read command output, and solve issues. Feel free to
 submit pull requests to help me correct the guide.
@@ -96,7 +96,7 @@ make install
 This will produce a couple warnings about relinking, but should install and be
 functional.
 
-Some system libraries are added and need to have their links updated and guacd
+Some system libraries are added and need to have their linuser updated and guacd
 was added to systemd. systemd needs to be reloaded after the libraries are synced.
 
 ```
@@ -236,3 +236,50 @@ editor /etc/guacamole/guacamole.properties
 guacd-hostname: localhost
 guacd-port: 4822
 ```
+That will get Guacamole talking to apache and allowing the connections,
+
+Now create this file and setup the users for access
+```
+editor /etc/guacamole/user-mapping.xml
+```
+```
+<user-mapping>
+    <!-- Create a User, repeat this stanza per user -->
+    <authorize
+            username="user"
+            password="password">
+
+        <!-- First authorized connection -->
+        <connection name="rdp">
+            <protocol>rdp</protocol>
+            <param name="hostname">localhost</param>
+            <param name="port">3389</param>
+	    <param name="username">user</param>
+            <param name="password">password</param>
+        </connection>
+
+        <!-- Second authorized connection -->
+        <connection name="ssh">
+            <protocol>ssh</protocol>
+            <param name="hostname">localhost</param>
+            <param name="port">22</param>
+	    <param name="username">user</param>
+            <param name="password">password</param>
+        </connection>
+
+    </authorize>
+    <!-- End User -->
+</user-mapping>
+```
+This you can remove the username and password paramaers from the connection
+stanzas to have the system request authentication.
+these user/password combos need to match the system user used to connect to the
+rdp and ssh respectively.
+
+There are tons more configuration options and connections that can be used,
+please see the [Apache Guacamole Documentation](https://guacamole.apache.org/doc/gug/) for more configuration options
+and a complete description of what we are doing here.
+
+## Wrapping up
+
+
