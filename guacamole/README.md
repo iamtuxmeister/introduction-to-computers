@@ -151,6 +151,10 @@ a2enmod proxy proxy_wstunnel proxy_http ssl rewrite
 Copy and paste this config into the new file `/etc/apache2/sites-available/guacamole.conf`
 
 ```
+editor /etc/apache2/sites-available/guacamole.conf
+```
+
+```
 <VirtualHost *:80>
     ServerName example.io
     ServerAlias www.example.io
