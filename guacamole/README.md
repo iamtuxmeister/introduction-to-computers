@@ -1,6 +1,13 @@
 ## Apache Guacamole and XRDP for connecting to a Linux developemnt Environment
 
 
+First acknowledgements, I straight ripped off [this guy](https://adamtheautomator.com/apache-guacamole/)'s tutorial for the most part.
+Without it I probably would not have been able to complete this in the time I did.
+I have created this repo to help others, and to inshrine his excellent work.
+Thanks Adam.
+
+Let's get to work
+
 This is going to be built on Debian 11 (Stable). These commands should work on
 Ubuntu LTS 22.04
 
@@ -126,7 +133,10 @@ Now we get the Guacamole client, also served by Tomcat,
 We will set this up to be served by apache2 using local proxy
 
 ```
-wget https://dlcdn.apache.org/guacamole/1.5.0/binary/guacamole-1.5.0.war -o /var/lib/tomcat9/webapps/guacamole.war
+cd /opt
+wget https://dlcdn.apache.org/guacamole/1.5.0/binary/guacamole-1.5.0.war
+mv guacamole-1.5.0.war guacamole.war
+cp guacamole.war /var/lib/tomcat9/webapps
 ```
 
 We will be utilizing Let's Encrypt for the ssl certificate for Apache2.
