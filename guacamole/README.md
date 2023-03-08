@@ -116,3 +116,17 @@ Guacamole.
 ```
 echo GUACAMOLE_HOME=/etc/guacamole >> /etc/default/tomcat9
 ```
+
+Create the Applcation directories and setup config files for Guacamole.
+```
+mkdir -p /etc/guacamole/{extensions,lib}
+touch /etc/guacamole/{guacamole.properties,guacd.conf}
+```
+
+Now we get the Guacamole client, also served by Tomcat,
+We will set this up to be served by apache2 using local proxy
+
+```
+cd /opt
+wget https://dlcdn.apache.org/guacamole/1.5.0/binary/guacamole-1.5.0.war -o /var/lib/tomcat9/webapps/guacamole.war
+```
