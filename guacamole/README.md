@@ -54,3 +54,21 @@ accessable over guacamole+rdp when we finish building/configuring the applicatio
 apt install tomcat9 apache2 xrdp cinnamon chromium build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
 ```
 
+## applications
+
+Apache Guacamole runs on Apache Tomcat, it was installed in the previous command.
+Tomcat does not get enabled by default. Execute this command to enable and start
+Apache Tomcat9.
+
+```
+systemctl enable --now Tomcat9
+```
+
+At the time of this writing the latest version of guacamole is 1.5, this will
+download the source. You can do the build from anywhere, I like to use the
+`/opt/` directory for that as it is the current "standard".
+
+```
+cd /opt
+wget https://dlcdn.apache.org/guacamole/1.5.0/source/guacamole-server-1.5.0.tar.gz
+```
