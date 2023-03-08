@@ -54,7 +54,7 @@ accessable over guacamole+rdp when we finish building/configuring the applicatio
 apt install tomcat9 apache2 xrdp cinnamon chromium build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
 ```
 
-## Applications
+## Application Install
 
 Apache Guacamole runs on Apache Tomcat, it was installed in the previous command.
 Tomcat does not get enabled by default. Execute this command to enable and start
@@ -96,10 +96,23 @@ make install
 This will produce a couple warnings about relinking, but should install and be
 functional.
 
-some system libraries are added and need to have their links updated and guacd
+Some system libraries are added and need to have their links updated and guacd
 was added to systemd. systemd needs to be reloaded after the libraries are synced.
 
 ```
 ldconfig
 systemctl daemon-reload
+```
+Now we tell systemd to automatically start guacd on reboots, and start it now.
+```
+systemctl enable --now guacd
+```
+
+## Configuration, and Integration
+
+Tomcat is designed to be application agnostic. It really doesn't care what
+java application it serves. Four our application we need to tell it where to find
+Guacamole.
+```
+echo GUACAMOLE_HOME=/etc/guacamole >> /etc/default/tomcat9
 ```
