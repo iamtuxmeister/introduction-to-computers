@@ -103,7 +103,7 @@ make install
 This will produce a couple warnings about relinking, but should install and be
 functional.
 
-Some system libraries are added and need to have their linuser updated and guacd
+Some system libraries are added and need to have their links updated and guacd
 was added to systemd. systemd needs to be reloaded after the libraries are synced.
 
 ```
