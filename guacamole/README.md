@@ -149,6 +149,7 @@ Apache2 is next to be configured, lets enable the modules that will be necessary
 a2enmod proxy proxy_wstunnel proxy_http ssl rewrite
 ```
 Copy and paste this config into the new file `/etc/apache2/sites-available/guacamole.conf`
+Be sure to replace example.io with your fqdn.
 
 ```
 editor /etc/apache2/sites-available/guacamole.conf
@@ -158,6 +159,7 @@ editor /etc/apache2/sites-available/guacamole.conf
 <VirtualHost *:80>
     ServerName example.io
     ServerAlias www.example.io
+    DocumentRoot /var/www/html
 
     Redirect permanent / https://example.io/
 </VirtualHost>
@@ -165,6 +167,7 @@ editor /etc/apache2/sites-available/guacamole.conf
 <VirtualHost *:443>
     ServerName example.io
     ServerAlias www.example.io
+    DocumentRoot /var/www/html
 
     <If "%{HTTP_HOST} == 'www.example.io'">
     Redirect permanent / https://example.io/
@@ -192,4 +195,24 @@ editor /etc/apache2/sites-available/guacamole.conf
     </Location>
 
 </VirtualHost>
+```
+Now enable the guacamole apache config file, and restart apache.
+```
+a2ensite guacamole.conf
+systemctl restart apache2
+```
+
+We need to get apache tomcat to be able to see the real ip of the client to make
+guacamole work correctly. Edit the `/etc/tomcat9/server.xml` file and add this
+code block after the `<Host ...>` tag
+
+```
+editor /etc/tomcat9/server.xml
+```
+```
+<Valve className="org.apache.catalina.valves.RemoteIpValve"
+            internalProxies="127.0.0.1"
+            remoteIpHeader="x-forwarded-for"
+            remoteIpProxiesHeader="x-forwarded-by"
+            protocolHeader="x-forwarded-proto" />
 ```
