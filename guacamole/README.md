@@ -13,7 +13,7 @@ Ubuntu LTS 22.04
 
 Commands that can be copied and pasted will be displayed as
 ```
-code blocuser
+code block
 ```
 Please follow along, and read command output, and solve issues. Feel free to
 submit pull requests to help me correct the guide.
