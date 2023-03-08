@@ -43,9 +43,14 @@ packages.
 ```
 apt update && apt upgrade -y
 ```
-should get us a freshly updated system to begin.
+This should get us a freshly updated system to begin.
+
+## Dependancies
+
+This should install all the dependancies to have a basic cinnamon desktop
+accessable over guacamole+rdp when we finish building/configuring the applications.
 
 ```
-apt install build-essential libcairo2-dev libjpeg-turbo8-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
+apt install tomcat9 apache2 xrdp cinnamon chromium build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
 ```
 
