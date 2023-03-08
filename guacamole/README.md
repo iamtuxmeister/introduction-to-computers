@@ -216,3 +216,23 @@ editor /etc/tomcat9/server.xml
             remoteIpProxiesHeader="x-forwarded-by"
             protocolHeader="x-forwarded-proto" />
 ```
+Now we need to configure the Guacamole application to allow our connections
+and setup users/resources
+
+Make the following changes to the configuration files for guacamole
+
+```
+editor /etc/guacamole/guacd.conf
+```
+```
+[server]
+bind_host = 0.0.0.0
+bind_port = 4822
+```
+```
+editor /etc/guacamole/guacamole.properties
+```
+```
+guacd-hostname: localhost
+guacd-port: 4822
+```
