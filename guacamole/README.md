@@ -122,11 +122,70 @@ Create the Applcation directories and setup config files for Guacamole.
 mkdir -p /etc/guacamole/{extensions,lib}
 touch /etc/guacamole/{guacamole.properties,guacd.conf}
 ```
-
 Now we get the Guacamole client, also served by Tomcat,
 We will set this up to be served by apache2 using local proxy
 
 ```
-cd /opt
 wget https://dlcdn.apache.org/guacamole/1.5.0/binary/guacamole-1.5.0.war -o /var/lib/tomcat9/webapps/guacamole.war
+```
+
+We will be utilizing Let's Encrypt for the ssl certificate for Apache2.
+This is optional, but you should supply an ssl certificate, an will need to adjust
+the apache configs to reflect your certificate location. The following commands
+will install certbot and create the cert, please follow the prompts to create the cert.
+```
+apt install certbot python3-certbot-apache
+certbot certonly --apache
+```
+
+Test to make sure that the certificate renewall process will succeed by running
+this command.
+```
+certbot renew --dry-run
+```
+
+Apache2 is next to be configured, lets enable the modules that will be necessary
+```
+a2enmod proxy proxy_wstunnel proxy_http ssl rewrite
+```
+Copy and paste this config into the new file `/etc/apache2/sites-available/guacamole.conf`
+
+```
+<VirtualHost *:80>
+    ServerName example.io
+    ServerAlias www.example.io
+
+    Redirect permanent / https://example.io/
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName example.io
+    ServerAlias www.example.io
+
+    <If "%{HTTP_HOST} == 'www.example.io'">
+    Redirect permanent / https://example.io/
+    </If>
+
+    ErrorLog /var/log/apache2/example.io-error.log
+    CustomLog /var/log/apache2/example.io-access.log combined
+
+    SSLEngine On
+    SSLCertificateFile /etc/letsencrypt/live/example.io/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/example.io/privkey.pem
+
+    <Location /guacamole/>
+        Order allow,deny
+        Allow from all
+        ProxyPass http://127.0.0.1:8080/guacamole/ flushpackets=on
+        ProxyPassReverse http://127.0.0.1:8080/guacamole/
+    </Location>
+
+    <Location /guacamole/websocket-tunnel>
+        Order allow,deny
+        Allow from all
+        ProxyPass ws://127.0.0.1:8080/guacamole/websocket-tunnel
+        ProxyPassReverse ws://127.0.0.1:8080/guacamole/websocket-tunnel
+    </Location>
+
+</VirtualHost>
 ```
