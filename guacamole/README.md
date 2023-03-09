@@ -1,4 +1,4 @@
-## Apache Guacamole and XRDP for connecting to a Linux developemnt Environment
+## Apache Guacamole and XRDP for connecting to a Linux Developemnt Environment
 
 
 First acknowledgements, I straight ripped off [this guy](https://adamtheautomator.com/apache-guacamole/)'s tutorial for the most part.
