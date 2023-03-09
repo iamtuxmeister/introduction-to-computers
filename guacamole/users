@@ -1,0 +1,4 @@
+#user|password|security,groups|services,list
+teacher|P@ssw0rd|sudo|rdp,ssh
+student1|Password#123||rdp
+student2|Password#123||rdp
