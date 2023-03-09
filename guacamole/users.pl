@@ -25,7 +25,7 @@ while (<US>) {
 	chomp;
     next if ($_ =~ /^\#/);
 	my @parts = split(/\|/, $_);
-	my $command = 'useradd -m ';
+	my $command = 'useradd -m -s /bin/bash ';
 	if (length($parts[2]) > 1) {
 		$command .= "-G $parts[2] ";
 	}
