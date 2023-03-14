@@ -14,6 +14,7 @@ my %prots = (
 	vnc => 5900
 );
 
+
 if (scalar(@ARGV) > 0) {
     print "This will take a in a users file and generate a users-mapping.xml file for apache guacamole\n";
     print "Please see the users file for specifications\n";
