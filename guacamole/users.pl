@@ -32,8 +32,8 @@ while (<US>) {
 	}
 	$command .= "$parts[0]";
 	$command .= qq{ && echo -e "$parts[0]:$parts[1]" | chpasswd --md5 $parts[0]};
-	#system($command);
-	print($command, "\n");
+    #system($command);
+    print($command, "\n");
 	print FH qq{    <authorize
             username="$parts[0]"
             password="$parts[1]">\n};
