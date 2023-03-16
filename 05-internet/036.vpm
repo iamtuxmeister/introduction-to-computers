@@ -1,0 +1,30 @@
+                     _____ _   _ _____      _____ _   _ _____ ___________ _   _ _____ _____
+                    |_   _| | | |  ___|    |_   _| \ | |_   _|  ___| ___ | \ | |  ___|_   _|
+                      | | | |_| | |__        | | |  \| | | | | |__ | |_/ |  \| | |__   | |
+                      | | |  _  |  __|       | | | . ` | | | |  __||    /| . ` |  __|  | |
+                      | | | | | | |___      _| |_| |\  | | | | |___| |\ \| |\  | |___  | |
+                      \_/ \_| |_\____/      \___/\_| \_/ \_/ \____/\_| \_\_| \_\____/  \_/
+
+
+                                            History
+
+1973:
+    The ALOHA experiment connects University of Hawaii to ARPANET using packet radio,
+    this includes sites on 4 of the islands, and satellite communication to Norway and UK.
+    the Intercontential Network is born.
+
+    Bob Kahn and Vint Cerf working for DARPA begin work on the Transmission Control Protocol
+
+    Bob Metcalfe at Xerox PARC creates the wire-based modeling system using the ALOHA Protocol
+    and Ethernet is born.
+
+1975:
+    NASA adopts TCP protocol for the SPAN (Space Physics Network).
+
+1976:
+    DARPA funds UC Berkeley to revise UNIX to include TCP/IP Protocol stack, and UUCP to be used
+    for dialup modems.
+
+1981:
+    Mr. Stubblefield is born.
+
