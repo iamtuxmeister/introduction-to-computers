@@ -1,0 +1,23 @@
+                                             _____  _    ____ ____
+                                            |_   _|/ \  / ___/ ___|
+                                              | | / _ \| |  _\___ \
+                                              | |/ ___ \ |_| |___) |
+                                              |_/_/   \_\____|____/
+
+<!-- Tags are composed within eachother -->
+<html>
+    <head>
+        <title>This is a title</title>
+    </head><!-- make sure to close your section tag before opening another -->
+    <body><!-- This is where the fun happens -->
+
+        <!-- not actually valid but it makes a point -->
+        <header>
+            <nav>all | the | navigation | stuff</nav>
+        </header>
+
+        <!-- you can nest tags within eachother on the same line -->
+        <center><h1>This is the centered title at the top</h1></center>
+        <!-- convention says 80 characters wide is the limit
+            there is no hard limit -->
+        <p>A paragraph of information</p>

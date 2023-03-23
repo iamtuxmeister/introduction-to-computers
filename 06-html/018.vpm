@@ -1,0 +1,12 @@
+                                             _____  _    ____ ____
+                                            |_   _|/ \  / ___/ ___|
+                                              | | / _ \| |  _\___ \
+                                              | |/ ___ \ |_| |___) |
+                                              |_/_/   \_\____|____/
+
+<!-- Tags are composed within eachother -->
+<html>
+    <head>
+        <title>This is a title</title>
+    </head><!-- make sure to close your section tag before opening another -->
+    <body><!-- This is where the fun happens -->
