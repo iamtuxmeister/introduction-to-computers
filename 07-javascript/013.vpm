@@ -1,0 +1,20 @@
+              ██╗ █████╗ ██╗   ██╗ █████╗  ████████╗ ██████╗███████╗ ████████╗██████╗ ████████╗
+              ██║██╔══██╗██║   ██║██╔══██╗██═══════╝██╔════╝██╔═══██╗╚══██╔══╝██╔══██╗╚══██╔══╝
+              ██║███████║║██╗ ██╔╝███████║ ███████╗ ██║     ██████╔═╝   ██║   ██████╔╝   ██║
+        ██╗   ██║██╔══██║╚██║ ██║ ██╔══██║ ╚═════██╗██║     ██║ ╚██╗    ██║   ██╔═══╝    ██║
+        ╚██████╔╝██║  ██║ ╚████╔╝ ██║  ██║████████╔╝╚██████╗██║  ╚██╗████████╗██║        ██║
+         ╚═════╝ ╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚═══════╝  ╚═════╝╚═╝   ╚═╝╚═══════╝╚═╝        ╚═╝
+
+
+2005 - JQuery Library was released using the ECMA implementation of JavaScript making AJAX easy,
+    and became the backbone of web application development.
+
+2008 - Google releases the Chrome browser with the V8 JavaScript engine, and the Just-In-Time(JIT)
+    compiler for ECMA JavaScript.
+
+2009 - Node.js engine was created, allowing JavaScript to be run outside of the browser.
+    This is built on top of the V8 engine.
+
+2013 - Electron framework was released, allowing for web technologies (HTML, CSS, JS) to be used to create
+    cross-platform applications to be run "Outside of the browser".
+
